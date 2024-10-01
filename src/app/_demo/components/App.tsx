@@ -7,7 +7,7 @@ import MainContent from './MainContent/MainContent'
 
 const App: React.FC = () => {
 	return (
-		<div className="flex overflow-hidden flex-col pb-4 bg-black ">
+		<div className="flex overflow-hidden flex-col pb-4  ">
 			<Header />
 			<MainContent />
 		</div>

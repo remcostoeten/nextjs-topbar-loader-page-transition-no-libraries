@@ -1,3 +1,4 @@
+import ThemeWrapper from '@/components/ThemeWrapper'
 import { geistMono, geistSans } from '@/core/config/fonts/fonts'
 import { metadata } from '@/core/config/home.metadata'
 import '@/styles/globals.css'
@@ -13,11 +14,11 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang="en">
+		<html lang="en" className="bg-[#10100f]">
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+				className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#10100f]`}
 			>
-				{children}
+				<ThemeWrapper>{children}</ThemeWrapper>
 			</body>
 		</html>
 	)
