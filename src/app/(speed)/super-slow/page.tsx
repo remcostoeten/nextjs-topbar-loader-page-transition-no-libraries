@@ -6,6 +6,9 @@ type Pokemon = {
 }
 
 const getPokemons = async (): Promise<Pokemon[]> => {
+	// Simulate a delay of 4 seconds
+	await new Promise(resolve => setTimeout(resolve, 4000))
+
 	const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100')
 
 	if (res.ok) {

@@ -7,8 +7,8 @@ import React from 'react'
 const MENU_ITEMS = [
 	{ label: 'Home', href: '/' },
 	{ label: 'Normal speed route', href: '/normal' },
-	{ label: 'Slow route', href: '/slow' },
-	{ label: 'Suuuuuper slow route', href: '/super-slow' }
+	{ label: 'Slow route (2s)', href: '/slow' },
+	{ label: 'Suuuuuper slow route (4s)', href: '/super-slow' }
 ]
 
 const Navigation: React.FC = () => {

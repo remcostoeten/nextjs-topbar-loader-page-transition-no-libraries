@@ -1,9 +1,8 @@
-import TransitionLink from '@/components/transition-link'
 import ModernCodeBlock from './modern-code-lock'
 
 export default function Docs() {
 	return (
-		<div className="min-h-screen  text-gray-100">
+		<div id="docs" className="min-h-screen max-w-5xl mx-auto text-gray-100">
 			<main className=" mx-auto px-4 py-8">
 				<h1 className="text-4xl font-bold mb-8">
 					Building a global Transition bar in Next.js
@@ -26,7 +25,7 @@ export default function Docs() {
 import { useEffect, useState } from "react";
 
 export const useTransition = () => {
-  const [state, setState] = useState("initial"); // initial, in-Transition, complete
+  const [state, setState] = useState("initial");
   const [value, setValue] = useState(0);
 
   const start = () => {

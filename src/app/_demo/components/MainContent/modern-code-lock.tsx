@@ -2,7 +2,7 @@
 
 import { cn } from '@/core/helpers/cn'
 import { motion } from 'framer-motion'
-import { Check, ChevronDown, ChevronRight, Copy } from 'lucide-react'
+import { Check, ChevronDown, ChevronUp, Copy } from 'lucide-react'
 import Prism from 'prismjs'
 import 'prismjs/components/prism-javascript'
 import 'prismjs/components/prism-jsx'
@@ -68,13 +68,13 @@ export default function ModernCodeBlock({
 							{isExpanded ? (
 								<ChevronDown size={18} />
 							) : (
-								<ChevronRight size={18} />
+								<ChevronUp size={18} />
 							)}
 						</button>
 					</div>
 				</div>
 				{description && (
-					<p className="mt-2 text-sm text-gray-400">{description}</p>
+					<p className=" text-sm text-gray-400">{description}</p>
 				)}
 			</div>
 			<motion.div

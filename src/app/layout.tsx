@@ -1,12 +1,9 @@
 import ThemeWrapper from '@/components/ThemeWrapper'
 import { geistMono, geistSans } from '@/core/config/fonts/fonts'
-import { metadata } from '@/core/config/home.metadata'
 import '@/styles/globals.css'
-export { metadata } from '@/core/config/home.metadata'
+import Header from './_demo/components/Header/Header'
 
-{
-	metadata
-}
+export { metadata } from '@/core/config/home.metadata'
 
 export default function RootLayout({
 	children
@@ -18,7 +15,10 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#10100f]`}
 			>
-				<ThemeWrapper>{children}</ThemeWrapper>
+				<ThemeWrapper>
+					<Header />
+					<ThemeWrapper>{children}</ThemeWrapper>
+				</ThemeWrapper>
 			</body>
 		</html>
 	)

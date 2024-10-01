@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 type Post = {
 	id: number
 	title: string
@@ -21,6 +19,7 @@ const getPosts = async (): Promise<Post[]> => {
 		return []
 	}
 }
+
 const page = async () => {
 	const posts = await getPosts()
 
@@ -30,7 +29,7 @@ const page = async () => {
 				<p className="fixed left-0 top-0 flex w-full justify-center border-b border-neutral-800 pb-6 pt-8 backdrop-blur-2xl bg-zinc-800/30 lg:static lg:w-auto lg:rounded-xl lg:border lg:p-4 lg:bg-zinc-800/90">
 					Decently slow api call&nbsp;
 					<code className="font-mono font-bold">
-						setTimeout 1000);
+						setTimeout , 1000);
 					</code>
 				</p>
 			</div>
