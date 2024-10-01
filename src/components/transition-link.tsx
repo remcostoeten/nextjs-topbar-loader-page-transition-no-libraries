@@ -1,21 +1,40 @@
-"use client";
+'use client'
 
-import useTransitionBar from "@/core/hooks/use-transition-bar";
-
+import useTransitionBar from '@/core/hooks/use-transition-bar'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { startTransition } from 'react'
 
 type TransitionLinkProps = {
-    children: React.ReactNode;
-    rest: React.ButtonHTMLAttributes<HTMLButtonElement>;
-};
+	href: string
+	children: React.ReactNode
+	[key: string]: any
+}
 
-const TransitionLink = ({ children, rest }: TransitionLinkProps) => {
-    const progress = useTransitionBar();
+const TransitionLink = ({ href, children, ...rest }: TransitionLinkProps) => {
+	const router = useRouter()
+	const progress = useTransitionBar()
 
-    return (
-        <button onClick={() => progress.start()} {...rest}>
-            {children}
-        </button>
-    );
-};
+	const navigateToDestination = (e: React.MouseEvent<HTMLAnchorElement>) => {
+		e.preventDefault()
+		progress.start()
 
-export default TransitionLink;
+		startTransition(() => {
+			router.push(href)
+			progress.done()
+		})
+	}
+
+	return (
+		<Link
+			className="hover:scale-[1.03] hover:text-zinc-200 hover:text-underline transition-all duration-300"
+			href=""
+			onClick={navigateToDestination}
+			{...rest}
+		>
+			{children}
+		</Link>
+	)
+}
+
+export default TransitionLink

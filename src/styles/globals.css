@@ -1,6 +1,7 @@
 @import './_demo/utils/_animations.css';
 @import './_demo/utils/_utility-classes.css';
 @import './_demo/components/tooltip.css';
+@import 'prismjs/themes/prism-tomorrow.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
