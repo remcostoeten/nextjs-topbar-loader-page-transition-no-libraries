@@ -1,0 +1,35 @@
+@import './_demo/utils/_animations.css';
+@import './_demo/utils/_utility-classes.css';
+@import './_demo/components/tooltip.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--gradient-one: #f00090;
+	--gradient-two: #861fed;
+	--gradient-three: #861fed;
+	--gradient-four: #f00090;
+	--gradient-five: #f00090;
+	--gradient-six: #00ffff;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+	.text-balance {
+		text-wrap: balance;
+	}
+}
+
+@layer base {
+	* {
+		@apply border-border;
+	}
+
+	body {
+		@apply bg-background text-foreground;
+	}
+}

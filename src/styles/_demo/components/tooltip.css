@@ -1,0 +1,23 @@
+.custom-tooltip {
+	background-color: #222;
+	/* Dark background */
+	color: #fff;
+	/* White text */
+	font-size: 18px;
+	/* Smaller text */
+	padding: 8px 12px;
+	border-radius: 4px;
+	text-align: center;
+	opacity: 0.9;
+	/* Slight transparency */
+}
+
+.custom-tooltip.place-top {
+	margin-bottom: 8px;
+	/* Space between the tooltip and the element */
+}
+
+.custom-tooltip::after {
+	border-top-color: #222;
+	/* Arrow color to match background */
+}

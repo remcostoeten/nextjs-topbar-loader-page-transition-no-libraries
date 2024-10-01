@@ -1,0 +1,50 @@
+.gradient-text {
+	background-image: linear-gradient(
+		to right,
+		var(--gradient-one),
+		var(--gradient-two)
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.gradient-text-alt {
+	background-image: linear-gradient(
+		to right,
+		var(--gradient-three),
+		var(--gradient-four)
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.gradient-text-alt-2 {
+	background-image: linear-gradient(
+		to right,
+		var(--gradient-five),
+		var(--gradient-six)
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.gradient-text-animated {
+	animation: gradientAnimation 3s infinite;
+	background-size: 200% 200%;
+}
+
+.gradient-text-alt-animated {
+	animation: gradientAnimation 3s infinite;
+	background-size: 200% 200%;
+}
+
+.gradient-text-alt-2-animated {
+	animation: gradientAnimation 3s infinite;
+	background-size: 200% 200%;
+}
+
+.img-height {
+	height: calc(100% - 32px);
+	border-radius: 32px 0 32px 0;
+	transform: translateX(-25px);
+}
