@@ -3,13 +3,11 @@ import { geistMono, geistSans } from '@/core/config/fonts/fonts'
 import '@/styles/globals.css'
 import Header from './_demo/components/Header/Header'
 
-export { metadata } from '@/core/config/home.metadata'
-
 export default function RootLayout({
 	children
-}: Readonly<{
+}: {
 	children: React.ReactNode
-}>) {
+}) {
 	return (
 		<html lang="en" className="bg-[#10100f]">
 			<body
@@ -17,7 +15,7 @@ export default function RootLayout({
 			>
 				<ThemeWrapper>
 					<Header />
-					<ThemeWrapper>{children}</ThemeWrapper>
+					{children}
 				</ThemeWrapper>
 			</body>
 		</html>

@@ -41,7 +41,7 @@ export default function ModernCodeBlock({
 
 	return (
 		<div>
-			<div className="px-6 py-4 bg-gray-800 bg-opacity-50">
+			<div className="px-6 py-4 bg-[#171616] border border-[#1b1b1a]">
 				<div className="flex items-center justify-between">
 					<h3 className="text-lg font-semibold text-gray-100">
 						{title}
@@ -83,7 +83,7 @@ export default function ModernCodeBlock({
 				transition={{ duration: 0.3 }}
 				// @ts-ignore
 				className={cn(
-					'overflow-hidden bg-gray-950',
+					'overflow-hidden bg-red-400',
 					isExpanded ? 'border-t border-gray-800' : ''
 				)}
 			>
@@ -95,7 +95,7 @@ export default function ModernCodeBlock({
 			</motion.div>
 			{!isExpanded && (
 				<div
-					className="px-6 py-3 text-sm text-gray-500 bg-gray-900 bg-opacity-50 cursor-pointer"
+					className="px-6 py-3 text-sm text-gray-500 bg-[#1b1b1a] border-l border-b border-r border-[#1b1b1a] cursor-pointer"
 					onClick={() => setIsExpanded(true)}
 				>
 					Click to expand

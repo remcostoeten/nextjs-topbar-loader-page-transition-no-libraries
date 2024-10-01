@@ -1,16 +1,18 @@
 'use client'
 
 import { Tooltip } from 'react-tooltip'
-import { GR as G } from '../effects./gradient-text'
 import Header from '../Header/Header'
+import GR from '../effects./gradient-text'
 
 export default function HeroText() {
 	const handleScroll = () => {
-		const target = document.getElementById('docs')
-		if (target) {
-			const targetPosition =
-				target.getBoundingClientRect().top + window.scrollY
-			const offsetPosition = targetPosition - 50 // Adjust the offset here
+		const element = document.getElementById('docs')
+		if (element) {
+			const offset = 50 // Adjust this value to your desired offset
+			const elementPosition =
+				element.getBoundingClientRect().top + window.scrollY
+			const offsetPosition = elementPosition - offset
+
 			window.scrollTo({
 				top: offsetPosition,
 				behavior: 'smooth'
@@ -23,9 +25,9 @@ export default function HeroText() {
 			<Header />
 			<h1 className="text-4xl sm:text-[60px] font-semibold tracking-tighter text-neutral-300 leading-none mb-8">
 				Saves{' '}
-				<G variant="altAnimated">
-					<span>47,8kB</span>
-				</G>{' '}
+				<GR>
+					<span>47,8kb </span>
+				</GR>
 				by neglecting to use of{' '}
 				<span
 					data-tooltip-id="tooltip1"
@@ -39,13 +41,13 @@ export default function HeroText() {
 					data-tooltip-id="tooltip2"
 					data-tooltip-content="you better n...."
 				>
-					<G>
+					<GR>
 						<i> necessary </i>
-					</G>
+					</GR>
 				</span>
 				lodash.
 				<br />
-				<small className="text-2xl text-neutral-300 translate-y-8">
+				<small className="text-2xl text-neutral-300 translate-y-8 w-full flex justify-between">
 					<i>Own, you own code.</i>
 				</small>
 			</h1>

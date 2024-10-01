@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import Header from './Header/Header'
-import MainContent from './MainContent/MainContent'
+import MainContent from './MainContent/main-content'
 
 const App: React.FC = () => {
 	return (

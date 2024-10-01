@@ -1,48 +1,4 @@
-/* The arrows pointing down under the hero text */
-
-.animated-arrows {
-	position: absolute;
-	left: 50%;
-	bottom: -30px;
-	transform: translateX(-50%);
-	width: 20px;
-	height: 40px;
-}
-
-.animated-arrows::after,
-.animated-arrows::before {
-	content: '';
-	position: absolute;
-	left: 0;
-	width: 20px;
-	height: 20px;
-	border-bottom: 2px solid #fff;
-	border-right: 2px solid #fff;
-	transform: rotate(45deg);
-	animation: arrowBounce 2s infinite;
-}
-
-.animated-arrows::before {
-	top: 0;
-}
-
-.animated-arrows::after {
-	bottom: 0;
-	animation-delay: -0.2s;
-}
-
-@keyframes arrowBounce {
-	0%,
-	100% {
-		transform: rotate(45deg) translate(0, 0);
-	}
-
-	50% {
-		transform: rotate(45deg) translate(5px, 5px);
-	}
-}
-
-@keyframes gradientAnimation {
+@keyframes gradient-animation {
 	0% {
 		background-position: 0% 50%;
 	}

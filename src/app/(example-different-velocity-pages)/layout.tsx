@@ -1,5 +1,4 @@
 import { metadata } from '@/core/config/home.metadata'
-import '@/styles/globals.css'
 import Header from '../_demo/components/Header/Header'
 export { metadata } from '@/core/config/home.metadata'
 

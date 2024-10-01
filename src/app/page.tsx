@@ -1,14 +1,16 @@
+'use client'
+
 import Docs from './_demo/components/MainContent/Docs'
-import MainContent from './_demo/components/MainContent/MainContent'
-import { Section } from './section'
+import MainContent from './_demo/components/MainContent/main-content'
+import Section from './section'
 
 const Home = () => {
 	return (
 		<>
-			<Section>
+			<Section className="mt-header">
 				<MainContent />
 			</Section>
-			<Section id="docs">
+			<Section>
 				<Docs />
 			</Section>
 		</>

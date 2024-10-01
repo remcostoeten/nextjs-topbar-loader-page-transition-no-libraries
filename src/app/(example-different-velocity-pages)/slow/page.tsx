@@ -1,3 +1,5 @@
+import GR from '@/app/_demo/components/effects./gradient-text'
+
 type Post = {
 	id: number
 	title: string
@@ -24,12 +26,13 @@ const page = async () => {
 	const posts = await getPosts()
 
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-between p-24 bg-black text-white">
+		<main className="flex min-h-screen flex-col items-center p-24 bg-black text-white">
 			<div className="mb-32 z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
 				<p className="fixed left-0 top-0 flex w-full justify-center border-b border-neutral-800 pb-6 pt-8 backdrop-blur-2xl bg-zinc-800/30 lg:static lg:w-auto lg:rounded-xl lg:border lg:p-4 lg:bg-zinc-800/90">
-					Decently slow api call&nbsp;
+					Decently slow api call:&nbsp;
 					<code className="font-mono font-bold">
-						setTimeout , 1000);
+						setTimeout of
+						<GR> 2000ms </GR> on the api call
 					</code>
 				</p>
 			</div>
@@ -37,7 +40,7 @@ const page = async () => {
 				{posts.map((post: Post) => (
 					<a
 						href={`https://jsonplaceholder.typicode.com/posts/${post.id}`}
-						className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-neutral-900 transition-all duration-300 border-zinc-800"
+						className="group rounded-lg border border-transparent px-5 py-4 transition-all hover:border-gray-300 hover:bg-neutral-900 duration-300 border-zinc-800"
 						target="_blank"
 						rel="noopener noreferrer"
 						key={post.id}
