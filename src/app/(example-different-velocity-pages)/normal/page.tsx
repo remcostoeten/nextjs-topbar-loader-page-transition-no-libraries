@@ -2,7 +2,7 @@ import GR from '@/app/_demo/components/effects./gradient-text'
 
 type PageProps = {}
 
-const page: React.FC<PageProps> = async ({ }) => {
+const page: React.FC<PageProps> = async ({}) => {
 	return (
 		<main className="flex min-h-screen flex-col items-center p-24 bg-black text-white">
 			<div className="mb-32 z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">

@@ -15,27 +15,28 @@ type UseTransitionReturn = {
 export default function useTransition({}: {}): UseTransitionReturn {
 	const [state, setState] = useState<TransitionState>('initial')
 	const [value, setValue] = useState<number>(0)
+	const [delay, setDelay] = useState<number>(0)
 
-	const start = () => {
+	const start = (newDelay?: number) => {
 		setState('in-transition')
+		setDelay(newDelay || 0)
 	}
 
 	useEffect(() => {
 		let t: NodeJS.Timeout | null = null
 		if (state === 'in-transition') {
+			const totalSteps = 100
+			const stepDuration = delay / totalSteps
+
 			t = setInterval(() => {
 				setValue(prevValue => {
-					if (prevValue >= 60 && prevValue < 80) {
-						return prevValue + 2
-					} else if (prevValue >= 80 && prevValue < 95) {
-						return prevValue + 0.5
-					} else if (prevValue >= 95) {
-						return 95
+					if (prevValue >= 99) {
+						return 99
 					} else {
-						return prevValue + 5
+						return prevValue + 1
 					}
 				})
-			}, 600)
+			}, stepDuration)
 		} else if (state === 'complete') {
 			setValue(100)
 			if (t) clearInterval(t)
@@ -44,7 +45,7 @@ export default function useTransition({}: {}): UseTransitionReturn {
 		return () => {
 			if (t) clearInterval(t)
 		}
-	}, [state])
+	}, [state, delay])
 
 	const done = () => {
 		setState('complete')
@@ -53,6 +54,7 @@ export default function useTransition({}: {}): UseTransitionReturn {
 	const reset = () => {
 		setValue(0)
 		setState('initial')
+		setDelay(0)
 	}
 
 	useEffect(() => {

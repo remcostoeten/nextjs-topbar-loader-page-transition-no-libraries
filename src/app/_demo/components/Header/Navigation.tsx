@@ -1,9 +1,9 @@
 import TransitionLink from '@/components/transition-link'
 
 const MENU_ITEMS = [
-	{ label: 'Normal speed route', href: '/normal' },
-	{ label: 'Slow route (2s)', href: '/slow' },
-	{ label: 'Suuuuuper slow route (4s)', href: '/super-slow' }
+	{ label: 'Normal speed route', href: '/normal', delay: 0 },
+	{ label: 'Slow route (2s)', href: '/slow', delay: 2000 },
+	{ label: 'Suuuuuper slow route (4s)', href: '/super-slow', delay: 4000 }
 ]
 
 export default function Navigation() {
@@ -13,6 +13,7 @@ export default function Navigation() {
 				<TransitionLink
 					key={item.label}
 					href={item.href}
+					delay={item.delay}
 					className="self-stretch my-auto"
 				>
 					{item.label}

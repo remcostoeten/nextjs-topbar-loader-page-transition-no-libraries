@@ -19,8 +19,8 @@ const getPokemons = async (): Promise<Pokemon[]> => {
 				id: data.id,
 				name: data.name,
 				sprites: {
-					front_default: data.sprites.front_default,
-				},
+					front_default: data.sprites.front_default
+				}
 			})
 		}
 	}

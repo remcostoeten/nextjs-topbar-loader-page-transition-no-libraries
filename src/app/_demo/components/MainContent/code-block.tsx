@@ -69,7 +69,7 @@ export default function CodeBlock({
 								<ChevronDown size={18} />
 							) : (
 								<ChevronUp size={18} />
-							)}	
+							)}
 						</button>
 					</div>
 				</div>
@@ -84,7 +84,9 @@ export default function CodeBlock({
 				// @ts-ignore
 				className={cn(
 					'overflow-hidden ',
-					isExpanded ? 'border-t border-gray-800 overflow-x-scroll' : ''
+					isExpanded
+						? 'border-t border-gray-800 overflow-x-scroll'
+						: ''
 				)}
 			>
 				<pre

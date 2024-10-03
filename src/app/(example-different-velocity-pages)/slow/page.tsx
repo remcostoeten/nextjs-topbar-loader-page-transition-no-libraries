@@ -1,3 +1,4 @@
+import Delay from '@/app/_demo/components/delay'
 import GR from '@/app/_demo/components/effects./gradient-text'
 
 type Post = {
@@ -9,17 +10,17 @@ type Post = {
 const getPosts = async (): Promise<Post[]> => {
 	const res = await fetch(
 		'https://jsonplaceholder.typicode.com/posts?_limit=10'
-	);
+	)
 
 	if (res.ok) {
-		return new Promise((resolve) => {
+		return new Promise(resolve => {
 			setTimeout(async () => {
-				const data = await res.json();
-				resolve(data);
-			}, 2000);
-		});
+				const data = await res.json()
+				resolve(data)
+			}, 2000)
+		})
 	} else {
-		return [];
+		return []
 	}
 }
 
