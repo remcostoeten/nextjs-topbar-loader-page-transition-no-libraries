@@ -53,9 +53,6 @@ export default function HeroText() {
 			</h1>
 			<span>
 				<div className="absolute bottom-[40px] right-0 transform -translate-x-1/2 flex flex-col items-center">
-					<span onClick={handleScroll} className="mb-2">
-						Docs below
-					</span>
 					<button
 						onClick={handleScroll}
 						className="flex flex-col items-center text-sm font-medium tracking-tight text-neutral-200 "

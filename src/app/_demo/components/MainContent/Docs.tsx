@@ -1,26 +1,26 @@
-import ModernCodeBlock from './modern-code-lock'
+import CodeBlock from './code-block'
 
 export default function Docs() {
-	return (
-		<div id="docs" className="min-h-screen max-w-5xl mx-auto text-gray-100">
-			<main className="mx-auto px-4 py-8">
-				<h1 className="text-4xl font-bold mb-8">
-					Implementing a Global Transition Bar in Next.js
-				</h1>
+  return (
+    <div id="docs" className="min-h-screen max-w-5xl mx-auto text-gray-100">
+      <main className="mx-auto px-4 py-8">
+        <h1 className="text-4xl font-bold mb-8">
+          Implementing a Global Transition Bar in Next.js
+        </h1>
 
-				<p className="mb-6">
-					To introduce a smooth transition effect for page changes in
-					your Next.js project, the goal is to create a global
-					Transition Bar component. Let's walk through the steps to
-					get it up and running.
-				</p>
+        <p className="mb-6">
+          To introduce a smooth transition effect for page changes in
+          your Next.js project, the goal is to create a global
+          Transition Bar component. Let's walk through the steps to
+          get it up and running.
+        </p>
 
-				<h2 className="text-2xl font-semibold mb-4">
-					1. Build a custom Hook: useTransition
-				</h2>
+        <h2 className="text-2xl font-semibold mb-4">
+          1. Build a custom Hook: useTransition
+        </h2>
 
-				<ModernCodeBlock
-					code={`
+        <CodeBlock
+          code={`
 "use client";
 import { useEffect, useState } from "react";
 
@@ -85,17 +85,17 @@ export const useTransition = () => {
   };
 };
           `}
-					language="typescript"
-					title="useTransition.ts"
-					description="Custom Hook to handle the transition state"
-				/>
+          language="typescript"
+          title="useTransition.ts"
+          description="Custom Hook to handle the transition state"
+        />
 
-				<h2 className="text-2xl font-semibold mt-8 mb-4">
-					2. Build the transitionBar Component
-				</h2>
+        <h2 className="text-2xl font-semibold mt-8 mb-4">
+          2. Build the transitionBar Component
+        </h2>
 
-				<ModernCodeBlock
-					code={`
+        <CodeBlock
+          code={`
 "use client";
 import React, { createContext } from "react";
 import { useTransition } from "../hooks/useTransition";
@@ -119,17 +119,17 @@ const transitionBar = ({ children }) => {
 };
 export default transitionBar;
           `}
-					language="tsx"
-					title="transitionBar.tsx"
-					description="transitionBar Component that provides global context"
-				/>
+          language="tsx"
+          title="transitionBar.tsx"
+          description="transitionBar Component that provides global context"
+        />
 
-				<h2 className="text-2xl font-semibold mt-8 mb-4">
-					3. Add a Hook to Access the Transition Context
-				</h2>
+        <h2 className="text-2xl font-semibold mt-8 mb-4">
+          3. Add a Hook to Access the Transition Context
+        </h2>
 
-				<ModernCodeBlock
-					code={`
+        <CodeBlock
+          code={`
 'use client'
 import { useContext } from "react";
 import { transitionBarContext } from "../components/transitionBar";
@@ -146,17 +146,17 @@ export const useTransitionBar = () => {
   return Transition;
 };
           `}
-					language="typescript"
-					title="useTransitionBar.ts"
-					description="Hook to access transitionBar context"
-				/>
+          language="typescript"
+          title="useTransitionBar.ts"
+          description="Hook to access transitionBar context"
+        />
 
-				<h2 className="text-2xl font-semibold mt-8 mb-4">
-					4. Create a Custom Link: transitionLink
-				</h2>
+        <h2 className="text-2xl font-semibold mt-8 mb-4">
+          4. Create a Custom Link: transitionLink
+        </h2>
 
-				<ModernCodeBlock
-					code={`
+        <CodeBlock
+          code={`
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -186,17 +186,17 @@ const transitionLink = ({ href, children, ...rest }) => {
 
 export default transitionLink;
           `}
-					language="tsx"
-					title="transitionLink.tsx"
-					description="Custom Link component that triggers the transitionBar"
-				/>
+          language="tsx"
+          title="transitionLink.tsx"
+          description="Custom Link component that triggers the transitionBar"
+        />
 
-				<h2 className="text-2xl font-semibold mt-8 mb-4">
-					5. Wrap the App with transitionBar
-				</h2>
+        <h2 className="text-2xl font-semibold mt-8 mb-4">
+          5. Wrap the App with transitionBar
+        </h2>
 
-				<ModernCodeBlock
-					code={`
+        <CodeBlock
+          code={`
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -207,17 +207,17 @@ export default function RootLayout({ children }) {
   );
 }
           `}
-					language="tsx"
-					title="layout.tsx"
-					description="Global layout wrapped with transitionBar"
-				/>
+          language="tsx"
+          title="layout.tsx"
+          description="Global layout wrapped with transitionBar"
+        />
 
-				<h2 className="text-2xl font-semibold mt-8 mb-4">
-					Example Usage
-				</h2>
+        <h2 className="text-2xl font-semibold mt-8 mb-4">
+          Example Usage
+        </h2>
 
-				<ModernCodeBlock
-					code={`
+        <CodeBlock
+          code={`
 import transitionLink from '../components/transitionLink';
 
 export default function Home() {
@@ -231,17 +231,17 @@ export default function Home() {
   )
 }
           `}
-					language="tsx"
-					title="page.tsx"
-					description="Demonstrating the use of transitionLink in a page"
-				/>
+          language="tsx"
+          title="page.tsx"
+          description="Demonstrating the use of transitionLink in a page"
+        />
 
-				<p className="mt-8">
-					Following these steps will allow you to integrate a global
-					Transition Bar in your Next.js app, giving users a smooth
-					and intuitive experience as they navigate between pages.
-				</p>
-			</main>
-		</div>
-	)
+        <p className="mt-8">
+          Following these steps will allow you to integrate a global
+          Transition Bar in your Next.js app, giving users a smooth
+          and intuitive experience as they navigate between pages.
+        </p>
+      </main>
+    </div>
+  )
 }

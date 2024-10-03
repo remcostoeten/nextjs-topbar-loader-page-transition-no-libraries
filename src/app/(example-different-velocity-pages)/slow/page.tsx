@@ -29,7 +29,7 @@ const page = async () => {
 	return (
 		<main className="flex min-h-screen flex-col items-center p-24 bg-black text-white">
 			<div className="mb-32 z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-				<p className="fixed left-0 top-0 flex w-full justify-center border-b border-neutral-800 pb-6 pt-8 backdrop-blur-2xl bg-zinc-800/30 lg:static lg:w-auto lg:rounded-xl lg:border lg:p-4 lg:bg-zinc-800/90">
+				<p className="-z-10 left-0 top-0 flex w-full justify-center border-b border-neutral-800 pb-6 pt-8 backdrop-blur-2xl bg-zinc-800/30 lg:static lg:w-auto lg:rounded-xl lg:border lg:p-4 lg:bg-zinc-800/90">
 					Decently slow api call:&nbsp;
 					<code className="font-mono font-bold">
 						setTimeout of

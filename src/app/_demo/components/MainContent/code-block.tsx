@@ -11,19 +11,19 @@ import 'prismjs/components/prism-typescript'
 import 'prismjs/themes/prism-tomorrow.css'
 import { useEffect, useState } from 'react'
 
-interface ModernCodeBlockProps {
+type CodeBlockProps = {
 	code: string
 	language: string
 	title: string
 	description?: string
 }
 
-export default function ModernCodeBlock({
+export default function CodeBlock({
 	code,
 	language,
 	title,
 	description
-}: ModernCodeBlockProps) {
+}: CodeBlockProps) {
 	const [isExpanded, setIsExpanded] = useState(false)
 	const [isCopied, setIsCopied] = useState(false)
 
@@ -40,7 +40,7 @@ export default function ModernCodeBlock({
 	}
 
 	return (
-		<div>
+		<div className="w-full">
 			<div className="px-6 py-4 bg-[#171616] border border-[#1b1b1a]">
 				<div className="flex items-center justify-between">
 					<h3 className="text-lg font-semibold text-gray-100">
@@ -69,7 +69,7 @@ export default function ModernCodeBlock({
 								<ChevronDown size={18} />
 							) : (
 								<ChevronUp size={18} />
-							)}
+							)}	
 						</button>
 					</div>
 				</div>
@@ -83,12 +83,12 @@ export default function ModernCodeBlock({
 				transition={{ duration: 0.3 }}
 				// @ts-ignore
 				className={cn(
-					'overflow-hidden bg-red-400',
-					isExpanded ? 'border-t border-gray-800' : ''
+					'overflow-hidden ',
+					isExpanded ? 'border-t border-gray-800 overflow-x-scroll' : ''
 				)}
 			>
 				<pre
-					className={`language-${language} p-6 text-sm overflow-x-auto`}
+					className={`language-${language} p-6 text-sm overflow-x-auto whitespace-pre-wrap`}
 				>
 					<code>{code.trim()}</code>
 				</pre>
