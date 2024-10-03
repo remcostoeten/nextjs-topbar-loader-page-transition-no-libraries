@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 type TransitionState = 'initial' | 'in-transition' | 'complete'
 
@@ -12,61 +12,62 @@ type UseTransitionReturn = {
 	reset: () => void
 }
 
-export default function useTransition({}: {}): UseTransitionReturn {
+export default function useTransition(): UseTransitionReturn {
 	const [state, setState] = useState<TransitionState>('initial')
 	const [value, setValue] = useState<number>(0)
 
-	const start = () => {
+	const start = useCallback(() => {
 		setState('in-transition')
-	}
+		setValue(0)
+	}, [])
+
+	const done = useCallback(() => {
+		setState('complete')
+		setValue(100)
+	}, [])
+
+	const reset = useCallback(() => {
+		setValue(0)
+		setState('initial')
+	}, [])
 
 	useEffect(() => {
-		let t: NodeJS.Timeout | null = null
+		let intervalId: NodeJS.Timeout | null = null
 		if (state === 'in-transition') {
-			t = setInterval(() => {
+			intervalId = setInterval(() => {
 				setValue(prevValue => {
-					if (prevValue >= 60 && prevValue < 80) {
-						return prevValue + 2
-					} else if (prevValue >= 80 && prevValue < 95) {
-						return prevValue + 0.5
-					} else if (prevValue >= 95) {
+					if (prevValue >= 95) {
 						return 95
+					} else if (prevValue >= 80) {
+						return prevValue + 0.5
+					} else if (prevValue >= 60) {
+						return prevValue + 2
 					} else {
 						return prevValue + 5
 					}
 				})
-			}, 600)
+			}, 100)
 		} else if (state === 'complete') {
-			setValue(100)
-			if (t) clearInterval(t)
+			if (intervalId) clearInterval(intervalId)
 		}
 
 		return () => {
-			if (t) clearInterval(t)
+			if (intervalId) clearInterval(intervalId)
 		}
 	}, [state])
 
-	const done = () => {
-		setState('complete')
-	}
-
-	const reset = () => {
-		setValue(0)
-		setState('initial')
-	}
-
 	useEffect(() => {
-		let t: NodeJS.Timeout | undefined
-		if (value === 100) {
-			t = setTimeout(() => {
+		let timeoutId: NodeJS.Timeout | undefined
+		if (state === 'complete') {
+			timeoutId = setTimeout(() => {
 				reset()
 			}, 300)
 		}
 
 		return () => {
-			if (t) clearTimeout(t)
+			if (timeoutId) clearTimeout(timeoutId)
 		}
-	}, [value])
+	}, [state, reset])
 
 	return {
 		state,

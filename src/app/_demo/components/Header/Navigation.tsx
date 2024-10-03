@@ -8,7 +8,7 @@ const MENU_ITEMS = [
 
 export default function Navigation() {
 	return (
-		<nav className="flex gap-6 justify-center items-center self-stretch my-auto text-sm font-medium leading-snug text-white whitespace-nowrap">
+		<nav className="flex gap-6 justify-center items-center text-sm font-medium leading-snug text-white whitespace-nowrap">
 			{MENU_ITEMS.map(item => (
 				<TransitionLink
 					key={item.label}

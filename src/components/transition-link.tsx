@@ -3,35 +3,27 @@
 import useTransitionBar from '@/core/hooks/use-transition-bar'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { startTransition } from 'react'
+import React from 'react'
 
-type TransitionLinkProps = {
+interface TransitionLinkProps {
 	href: string
 	children: React.ReactNode
-	[key: string]: any
+	className?: string
 }
 
-const TransitionLink = ({ href, children, ...rest }: TransitionLinkProps) => {
+const TransitionLink: React.FC<TransitionLinkProps> = ({ href, children, className }) => {
 	const router = useRouter()
-	const progress = useTransitionBar()
+	const transition = useTransitionBar()
 
-	const navigateToDestination = (e: React.MouseEvent<HTMLAnchorElement>) => {
+	const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
 		e.preventDefault()
-		progress.start()
+		transition.start()
 
-		startTransition(() => {
-			router.push(href)
-			progress.done()
-		})
+		router.push(href)
 	}
 
 	return (
-		<Link
-			className="hover:scale-[1.03] hover:text-zinc-200 hover:text-underline transition-all duration-300"
-			href=""
-			onClick={navigateToDestination}
-			{...rest}
-		>
+		<Link href={href} onClick={handleClick} className={className}>
 			{children}
 		</Link>
 	)
